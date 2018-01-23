@@ -1,0 +1,8 @@
+{
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rules": {
+    "mobx-react-no-empty-inject": true
+  },
+  "rulesDirectory": "../../src/rules"
+}
