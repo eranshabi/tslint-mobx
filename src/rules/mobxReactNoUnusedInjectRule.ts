@@ -44,10 +44,10 @@ class Walk extends Lint.RuleWalker {
             if (isClassDeclaration(node) || isClassExpression(node)) {
                 if (node.decorators) {
                     node.decorators.forEach(deco => {
-                        if (deco.expression && deco.expression.expression && deco.expression.expression.escapedText === 'inject') {
-                            if (deco.expression.arguments[0]) {
-                                this.propNodes[deco.expression.arguments[0].text] = (node);
-                                this.propNames.push(deco.expression.arguments[0].text);
+                        if (deco.expression && (<any>deco.expression).expression && (<any>deco.expression).expression.escapedText === 'inject') {
+                            if ((<any>deco.expression).arguments[0]) {
+                                this.propNodes[(<any>deco.expression).arguments[0].text] = (<any>node);
+                                this.propNames.push((<any>deco.expression).arguments[0].text);
                             }
                         }
                     });
