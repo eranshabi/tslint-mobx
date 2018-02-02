@@ -1,5 +1,5 @@
 {
-  "name": "mobx-tslint-rules",
+  "name": "tslint-mobx",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eranshabi/mobx-tslint-rules.git"
+    "url": "git+https://github.com/eranshabi/tslint-mobx.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eranshabi/mobx-tslint-rules/issues"
+    "url": "https://github.com/eranshabi/tslint-mobx/issues"
   },
-  "homepage": "https://github.com/eranshabi/mobx-tslint-rules#readme",
+  "homepage": "https://github.com/eranshabi/tslint-mobx#readme",
   "dependencies": {
     "tslint": "^5.9.1"
   },
