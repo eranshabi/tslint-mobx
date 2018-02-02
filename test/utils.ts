@@ -20,6 +20,15 @@ export const noUnusedInjectConfig = {
   "rulesDirectory": "src/rules"
 };
 
+export const noEmptyInjectConfig = {
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rules": {
+    "mobx-react-no-empty-inject": true
+  },
+  "rulesDirectory": "src/rules"
+};
+
 export const lintFileString = (file, config) => {
     const linter = new Linter({fix: false});
     const configuration = Configuration.parseConfigFile(config);
