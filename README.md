@@ -18,7 +18,9 @@ Then to use the default rules you can add `tslint-mobx` to `extends` in your `ts
   - For example if you have `@inject('someStore')` decorator wrapping your component, but `this.props.someStore` is unused. 
 - `mobx-react-no-empty-inject`
   - Makes sure you don't have any empty injects (`@inject()`).
-  
+- `mobx-react-no-inject-decorators`
+  - Makes sure you don't have any inject decorators (`@inject()`) at all on classes.
+    
 ### Adding your own rules
 Adding your own rules is straightforward.
 
