@@ -1,18 +1,3 @@
-/*"no-async-with-action": context => ({
-    Decorator: function(node) {
-      if (node.expression.name === "action") {
-        const ancestors = context.getAncestors();
-        const parent = ancestors.length > 0 && ancestors[ancestors.length - 1];
-        if (parent.type === "ClassProperty") {
-          if (parent.value && parent.value.async) {
-            context.report(node, "Async methods must use flow");
-          }
-        }
-      }
-    }
-  })
-*/
-
 import * as Lint from 'tslint';
 import * as ts from 'typescript';
 import {isMethodDeclaration, isArrowFunction, isPropertyDeclaration} from 'tsutils';
