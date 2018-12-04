@@ -11,6 +11,15 @@ export const lint = (path, fileName) => {
   return linter.getResult();
 };
 
+export const noAsyncActions = {
+  "defaultSeverity": "error",
+  "jsRules": {},
+  "rules": {
+    "mobx-react-no-async-action": true
+  },
+  "rulesDirectory": "src/rules"
+};
+
 export const noUnusedInjectConfig = {
   "defaultSeverity": "error",
   "jsRules": {},
