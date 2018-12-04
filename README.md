@@ -20,6 +20,8 @@ Then to use the default rules you can add `tslint-mobx` to `extends` in your `ts
   - Makes sure you don't have any empty injects (`@inject()`).
 - `mobx-react-no-inject-decorators`
   - Makes sure you don't have any inject decorators (`@inject()`) at all on classes.
+- `mobx-react-no-async-action`
+  - Makes sure you don't have any action decorators (`@action`) on async methods. 
     
 ### Adding your own rules
 Adding your own rules is straightforward.
