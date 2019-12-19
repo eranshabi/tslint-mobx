@@ -167,6 +167,20 @@ describe('mobx-react-no-unused-inject', () => {
             const result = lintFileString(file, noUnusedInjectConfig);
             expect(result.errorCount).toEqual(0);
         });
+
+        it('when destructuring a value from the store', () => {
+            const file = `
+                @inject('myStore')
+                class A extends React.Component<AddressDetailsFormProps, AState> {                    
+                    public render(): ReactTypes.ReactElement<any> {
+                        const { myStore: { storeValue }, foo, bar = [], ...rest } = this.props;
+                        return null;
+                    }
+                }
+                `;
+            const result = lintFileString(file, noUnusedInjectConfig);
+            expect(result.errorCount).toEqual(0);
+        });
     });
 
     describe('should fail when', () => {

@@ -79,9 +79,13 @@ class Walk extends Lint.RuleWalker {
             if (referencedPropertyName === 'this.props') {
                 const left = node.parent.getChildren()[0];
                 const leftChildrenLength = left.getChildren().length;
-                if (leftChildrenLength !== 0 && left.getChildren()[0].getText() === '{' && left.getChildren()[leftChildrenLength - 1].getText() === '}') {
-                    const vars = left.getChildren().map(child => child.getText()).slice(1, -1)[0].split(',').map(ar => ar.trim());
-                    this.propNames = removeAll(this.propNames, vars);
+                if (leftChildrenLength !== 0 && left.kind === ts.SyntaxKind.ObjectBindingPattern) {
+                    const bindings = left.getChildAt(1)
+                      .getChildren()
+                      .filter(child => child.kind === ts.SyntaxKind.BindingElement)
+                      .map((child: ts.BindingElement) => child.propertyName || child.name)
+                      .map(nameNode => nameNode.getText());
+                    this.propNames = removeAll(this.propNames, bindings);
                 } else {
                     // this props reference has escaped the function
                     this.propNames = [];
