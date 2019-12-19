@@ -1,6 +1,6 @@
 {
   "name": "tslint-mobx",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "tslint-mobx.json",
   "scripts": {
@@ -28,6 +28,7 @@
     "@types/jest": "^22.0.1",
     "jest": "^22.1.4",
     "ts-jest": "^22.0.1",
+    "tslint-jest": "^1.0.0",
     "typescript": "^2.6.2"
   },
   "jest": {
