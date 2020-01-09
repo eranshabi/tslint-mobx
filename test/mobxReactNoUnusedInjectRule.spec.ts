@@ -181,6 +181,19 @@ describe('mobx-react-no-unused-inject', () => {
             const result = lintFileString(file, noUnusedInjectConfig);
             expect(result.errorCount).toEqual(0);
         });
+
+        it('when inject using a function', () => {
+        const file = `
+                function injectMyStore(stores: any) {
+                    return {myStore: stores.myStore};
+                }
+                
+                @inject(injectMyStore)
+                class A extends React.Component<AddressDetailsFormProps, AState> {}
+                `;
+        const result = lintFileString(file, noUnusedInjectConfig);
+        expect(result.errorCount).toEqual(0);
+      });
     });
 
     describe('should fail when', () => {

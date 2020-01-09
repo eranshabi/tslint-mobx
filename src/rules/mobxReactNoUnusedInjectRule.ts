@@ -1,6 +1,6 @@
 import * as ts from 'typescript';
 import * as Lint from 'tslint';
-import {isClassDeclaration, isClassExpression} from 'tsutils';
+import {isClassDeclaration, isClassExpression, isIdentifier} from 'tsutils';
 
 const FAILURE_MESSAGE: string = 'Unused mobX store injected: ';
 
@@ -45,7 +45,13 @@ class Walk extends Lint.RuleWalker {
                 if (node.decorators) {
                     node.decorators.forEach(deco => {
                         if (deco.expression && (<any>deco.expression).expression && (<any>deco.expression).expression.escapedText === 'inject') {
-                            if ((<any>deco.expression).arguments[0]) {
+                            const firstDecoExpressionArgument = (<any>deco.expression).arguments[0];
+
+                            if(isIdentifier(firstDecoExpressionArgument)) {
+                                return;
+                            }
+
+                            if (firstDecoExpressionArgument) {
                                 this.propNodes[(<any>deco.expression).arguments[0].text] = (<any>node);
                                 this.propNames.push((<any>deco.expression).arguments[0].text);
                             }
